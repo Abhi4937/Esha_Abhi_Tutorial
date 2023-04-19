@@ -1,0 +1,118 @@
+Database
+--------------
+
+	1.Data Integrity
+	2.Table
+	3.Security
+	
+	SQL API  -- Doc of how to manipulate the data (DDL, DML, DQL/DRL, DCL)
+	DBMS
+		C - Create - (Create Table [data schema], Insertion)
+		R - Retrival - (DQL/DRL) - Select
+		U - Updations - (Update, Alter)
+		D - Deletions - (Delete, Drop)
+
+	RDBMS
+		MS-Access, Oracle, MySQL, PostgreSQL
+ 	
+	PL -> DB
+		JDBC - Java Databse Connectivity
+		ODBC- Open Database connectivity(for ms-access)
+		ADO(.Net) - Active/Access Data Object
+
+	JDBC Drivers
+		Type-1 Driver -----> JDBC-ODBC drivers
+				     Native API
+				     Network protocol
+				     Native protocol
+
+				JDBC SPECIFICATION
+ 		Interfaces
+
+		Classes
+		
+		Exceptions
+			SQLException
+
+              Steps to establish a connection
+		1.Register JDBC driver.
+		2. Obtain a connection.
+		3. Create statement object.
+		4. execute sql statement.
+	4a. process SELECT statement  4b. process DML or DDL statement
+	5. process query result       6. close connection
+
+
+mysql in command line - password is root
+mysql> create database database_name;
+mysql>show databases;
+mysql>use databasename;
+mysql>show tables;
+
+         statement:
+		DDL / DML
+		DQL
+		
+ 		boolean execute(String query) - DDL/DML (False) /DQL (True)
+
+		ResultSet executeQuery(String query) - DQL (select)
+	
+		int executeUpdate(String query) - DDL/DML
+
+	Book - Table (isbn int -PK
+			title string
+			author string
+			price double)
+ 	CREATE TABLE BOOK(	
+		isbn int primary key,
+		author varchar(20),
+		title varchar(20),
+		price double);
+	insert into book values(1001, 'Abhi', 'Java Basics', 500.5)
+
+ PreparedStatement:
+==========================
+ PreparedStatement statement = connection.preparedStatement(query);
+	setters:
+		setType(int position, object value)
+		statement.setString(2,"Springboot");
+
+
+         Executable
+        -------------------------
+		boolean execute() - DDL/DML (False) /DQL (True)
+
+		ResultSet executeQuery() - DQL (select)
+	
+		int executeUpdate() - DDL/DML
+
+	ResultSet -- interface
+   ==================================
+ 	
+	next() - used to iterate through the set of records
+
+	Getters;
+	---------------
+		1. getType(int position) - getInt(1)  -- isbn
+
+ 		2. getType(String field) - getInt("isbn") -- isbn
+
+	business configuration...............
+singleton design pattern-- design pattern is used to implement any object only once in its life cycle
+
+ ORM framework- Object Relational mapping
+	arm automates the following
+		Configuration
+		sql queries
+		connections
+		statement	
+enitity
+
+types of vendor
+hibernate - hql
+ibaties - assume iql
+toplink - 
+eclipselink - 
+open api
+
+JPA - Java Persistance API--- wrapper of above orms
